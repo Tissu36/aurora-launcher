@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:" />
+  <title>Aurora Launcher</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inconsolata:wght@400;600&family=Outfit:wght@400;500;600&display=swap" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="titlebar">
+    <div class="brand"><span class="flake">❄</span> AURORA <span class="ver mono">28.00</span></div>
+    <div class="win-btns">
+      <button id="min" aria-label="Minimize"><svg viewBox="0 0 12 12"><path d="M2 6h8" /></svg></button>
+      <button id="close" class="x" aria-label="Close"><svg viewBox="0 0 12 12"><path d="M3 3l6 6M9 3l-6 6" /></svg></button>
+    </div>
+  </div>
+
+  <div class="shell">
+    <nav class="side" aria-label="Launcher">
+      <button class="nav on" data-view="play"><svg viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z" /></svg><span>Play</span></button>
+      <button class="nav" data-view="library"><svg viewBox="0 0 24 24"><path d="M4 5h6v14H4zM14 5h6v14h-6z" /></svg><span>Library</span></button>
+      <button class="nav" data-view="settings"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" /><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1" /></svg><span>Settings</span></button>
+      <div class="credit">Made by<br /><b>Whykrushy</b><br />Aur Krushy</div>
+    </nav>
+
+    <main>
+      <!-- PLAY -->
+      <section class="view play on" id="view-play">
+        <div class="snow" aria-hidden="true"></div>
+        <div class="glow" aria-hidden="true"></div>
+        <div class="play-hero">
+          <p class="kicker mono">WELCOME UNDERGROUND</p>
+          <h1 class="display title">Chapter 5<br /><span class="ice">Season 1</span></h1>
+          <p class="hello" id="hello">Set your name in Settings.</p>
+        </div>
+        <div class="dock">
+          <div class="chips">
+            <div class="chip" id="chip-build"><span class="led"></span><div><small>Build</small><b>Checking…</b></div></div>
+            <div class="chip" id="chip-backend"><span class="led"></span><div><small>Backend</small><b>Checking…</b></div></div>
+          </div>
+          <button class="play-btn display" id="play">Play</button>
+        </div>
+      </section>
+
+      <!-- LIBRARY -->
+      <section class="view pad" id="view-library">
+        <h2 class="display h2">Library</h2>
+        <div class="card build-card">
+          <div class="build-art display">28.00</div>
+          <div class="build-info">
+            <small class="mono ice">CHAPTER 5 · SEASON 1 · UNDERGROUND</small>
+            <h3 class="display">Fortnite 28.00</h3>
+            <p class="mono path" id="build-path">No folder picked</p>
+            <p class="note" id="build-note"></p>
+            <div class="row">
+              <button class="btn btn-ice" id="pick">Choose build folder</button>
+              <button class="btn btn-ghost" id="open-folder">Open folder</button>
+            </div>
+          </div>
+        </div>
+        <div class="card locker-card">
+          <div><h3 class="display">The Locker</h3><p class="muted">Every cosmetic from C1 S1 to C5 S1.</p></div>
+          <button class="btn btn-ghost" id="open-site">Open website</button>
+        </div>
+      </section>
+
+      <!-- SETTINGS -->
+      <section class="view pad" id="view-settings">
+        <h2 class="display h2">Settings</h2>
+        <div class="form">
+          <label class="field"><span>Display name</span><input id="s-name" maxlength="24" placeholder="Aur Krushy" /><em>What shows in the lobby.</em></label>
+          <label class="field"><span>Backend URL</span><input id="s-backend" class="mono" placeholder="http://127.0.0.1:3551" /><em>Your private server backend.</em></label>
+          <label class="field"><span>Website URL</span><input id="s-site" class="mono" placeholder="https://your-aurora-site.vercel.app" /></label>
+          <label class="field"><span>Extra launch args</span><input id="s-args" class="mono" placeholder="optional" /></label>
+          <label class="toggle"><input type="checkbox" id="s-close" /><span class="track"><span class="knob"></span></span>Minimize launcher when the game starts</label>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="renderer.js"></script>
+</body>
+</html>
