@@ -116,3 +116,4 @@ main { position: relative; overflow: hidden; }
 .toast { position: fixed; left: 50%; top: 56px; transform: translate(-50%, -16px); opacity: 0; pointer-events: none; background: var(--fg); color: var(--bg); border-radius: 10px; padding: 12px 18px; font-weight: 500; max-width: 560px; text-align: center; transition: all .3s var(--ease); z-index: 10; }
 .toast.show { opacity: 1; transform: translate(-50%, 0); }
 .toast.err { background: var(--bad); color: var(--fg); }
+
